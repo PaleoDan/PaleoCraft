@@ -11,6 +11,6 @@ Compiling from source
 
 Contributors
 ==========
-|![PaleoDan](https://avatars0.githubusercontent.com/u/19293583?v=3&s=125)|![iLexiconn](https://avatars0.githubusercontent.com/u/5201999?v=3&s=125)|
-|:--------:|:--------:|
-|[@PaleoDan](https://github.com/PaleoDan)|[@iLexiconn](https://github.com/iLexiconn)|
+![iLexiconn](https://avatars0.githubusercontent.com/u/5201999?v=3&s=125)|
+|:--------:|
+|[@iLexiconn](https://github.com/iLexiconn)|

@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "paleocraft",
+    "name": "PaleoCraft",
+    "description": "Realistic prehistoric life in Minecraft",
+    "version": "${version}",
+    "authorList": [
+      "iLexiconn"
+    ],
+    "credits": "The PaleoCraft team",
+    "dependencies": [
+      "llibrary@[${llibrary_version},)"
+    ]
+  }
+]

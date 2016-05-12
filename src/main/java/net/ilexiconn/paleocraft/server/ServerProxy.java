@@ -1,7 +1,9 @@
 package net.ilexiconn.paleocraft.server;
 
 import net.ilexiconn.paleocraft.PaleoCraft;
-import net.ilexiconn.paleocraft.server.dinosaur.Dinosaur;
+import net.ilexiconn.paleocraft.server.block.BlockHandler;
+import net.ilexiconn.paleocraft.server.dinosaur.DinosaurHandler;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ServerProxy {
@@ -10,9 +12,11 @@ public class ServerProxy {
     }
 
     public void onInit() {
-        for (Dinosaur dinosaur : PaleoCraft.DINOSAUR_REGISTRY.getValues()) {
-            System.out.println("Found dinosaur in registry: " + dinosaur.getName());
-        }
+        BlockHandler.INSTANCE.onInit();
+        DinosaurHandler.INSTANCE.onInit();
+
+        DimensionManager.registerDimension(PaleoCraft.DIMENSION_ID, PaleoCraft.DIMENSION_TYPE);
+        PaleoCraft.DINOSAUR_REGISTRY.getValues().forEach(DinosaurHandler.INSTANCE::registerDinosaurEntity);
     }
 
     public void onPostInit() {

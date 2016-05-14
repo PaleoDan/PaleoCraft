@@ -20,6 +20,7 @@ public final class Dinosaur extends IForgeRegistryEntry.Impl<Dinosaur> {
     private int secondaryEggColor;
     private Consumer<NBTTagCompound> nbtWriter;
     private Consumer<NBTTagCompound> nbtReader;
+    private float shadowSize;
 
     private Dinosaur() {
     }
@@ -61,6 +62,12 @@ public final class Dinosaur extends IForgeRegistryEntry.Impl<Dinosaur> {
         return this;
     }
 
+    public Dinosaur setEggColor(int primaryEggColor, int secondaryEggColor) {
+        this.primaryEggColor = primaryEggColor;
+        this.secondaryEggColor = secondaryEggColor;
+        return this;
+    }
+
     public Dinosaur setNBTReader(Consumer<NBTTagCompound> nbtReader) {
         this.nbtReader = nbtReader;
         return this;
@@ -71,9 +78,9 @@ public final class Dinosaur extends IForgeRegistryEntry.Impl<Dinosaur> {
         return this;
     }
 
-    public void setEggColor(int primaryEggColor, int secondaryEggColor) {
-        this.primaryEggColor = primaryEggColor;
-        this.secondaryEggColor = secondaryEggColor;
+    public Dinosaur setshadowSize(float shadowSize) {
+        this.shadowSize = shadowSize;
+        return this;
     }
 
     public String getName() {
@@ -114,5 +121,9 @@ public final class Dinosaur extends IForgeRegistryEntry.Impl<Dinosaur> {
         if (this.nbtWriter != null) {
             this.nbtWriter.accept(compound);
         }
+    }
+
+    public float getShadowSize() {
+        return shadowSize;
     }
 }

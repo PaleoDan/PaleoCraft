@@ -12,4 +12,8 @@ public class DinosaurEntity extends EntityCreature {
         super(world);
         this.dinosaur = DinosaurHandler.INSTANCE.getDinosaurFromEntity(this);
     }
+
+    public Dinosaur getDinosaur() {
+        return dinosaur;
+    }
 }

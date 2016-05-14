@@ -18,7 +18,7 @@ public class ServerProxy {
         DinosaurHandler.INSTANCE.onInit();
 
         DimensionManager.registerDimension(PaleoCraft.DIMENSION_ID, PaleoCraft.DIMENSION_TYPE);
-        PaleoCraft.DINOSAUR_REGISTRY.getValues().forEach(DinosaurHandler.INSTANCE::registerDinosaurEntity);
+        PaleoCraft.DINOSAUR_REGISTRY.forEach(DinosaurHandler.INSTANCE::registerDinosaurEntity);
     }
 
     public void onPostInit() {

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.IForgeRegistry;
+import net.minecraftforge.fml.common.registry.FMLControlledNamespacedRegistry;
 import net.minecraftforge.fml.common.registry.PersistentRegistryManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +29,7 @@ public class PaleoCraft {
     public static final ResourceLocation DINOSAUR_REGISTRY_NAME = new ResourceLocation("paleocraft", "dinosaur_registry");
     public static final int MIN_DINOSAUR_ID = 0;
     public static final int MAX_DINOSAUR_ID = 1023;
-    public static final IForgeRegistry<Dinosaur> DINOSAUR_REGISTRY = PersistentRegistryManager.createRegistry(PaleoCraft.DINOSAUR_REGISTRY_NAME, Dinosaur.class, null, PaleoCraft.MIN_DINOSAUR_ID, PaleoCraft.MAX_DINOSAUR_ID, false, null, null, null);
+    public static final FMLControlledNamespacedRegistry<Dinosaur> DINOSAUR_REGISTRY = PersistentRegistryManager.createRegistry(PaleoCraft.DINOSAUR_REGISTRY_NAME, Dinosaur.class, null, PaleoCraft.MIN_DINOSAUR_ID, PaleoCraft.MAX_DINOSAUR_ID, false, null, null, null);
 
     public static final int DIMENSION_ID = -541;
     public static final DimensionType DIMENSION_TYPE = DimensionType.register("PaleoCraft", "", PaleoCraft.DIMENSION_ID, PaleoWorldProvider.class, false);

@@ -1,6 +1,8 @@
 package net.ilexiconn.paleocraft.client;
 
+import net.ilexiconn.paleocraft.PaleoCraft;
 import net.ilexiconn.paleocraft.server.ServerProxy;
+import net.ilexiconn.paleocraft.server.dinosaur.DinosaurHandler;
 import net.ilexiconn.paleocraft.server.item.ItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -22,6 +24,8 @@ public class ClientProxy extends ServerProxy {
     @Override
     public void onInit() {
         super.onInit();
+
+        PaleoCraft.DINOSAUR_REGISTRY.forEach(DinosaurHandler.INSTANCE::registerDinosaurRenderer);
     }
 
     @Override

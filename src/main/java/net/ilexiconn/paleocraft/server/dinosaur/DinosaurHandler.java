@@ -13,25 +13,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Map;
-import java.util.WeakHashMap;
-
 public enum DinosaurHandler {
     INSTANCE;
 
     public Dinosaur dromaeosaurus = Dinosaur.create("dromaeosaurus").setEntity(DromaeosaurusEntity.class);
 
     private int entityID;
-    private Map<Class<? extends DinosaurEntity>, Dinosaur> dinosaurMap = new WeakHashMap<>();
 
     public void onInit() {
         GameRegistry.register(this.dromaeosaurus, new ResourceLocation("paleocraft", "dromaeosaurus"));
     }
 
     public void registerDinosaurEntity(Dinosaur dinosaur) {
-        Class<? extends DinosaurEntity> entity = dinosaur.getEntity();
-        EntityRegistry.registerModEntity(entity, dinosaur.getName().toLowerCase().replaceAll(" ", "_"), this.entityID++, PaleoCraft.INSTANCE, 1024, 1, true, dinosaur.getPrimaryEggColor(), dinosaur.getSecondaryEggColor());
-        this.dinosaurMap.put(entity, dinosaur);
+        EntityRegistry.registerModEntity(dinosaur.getEntity(), dinosaur.getName().toLowerCase().replaceAll(" ", "_"), this.entityID++, PaleoCraft.INSTANCE, 1024, 1, true, dinosaur.getPrimaryEggColor(), dinosaur.getSecondaryEggColor());
     }
 
     @SideOnly(Side.CLIENT)
@@ -53,7 +47,12 @@ public enum DinosaurHandler {
     }
 
     public Dinosaur getDinosaurFromEntity(DinosaurEntity entity) {
-        return dinosaurMap.get(entity.getClass());
+        for (Dinosaur dinosaur : PaleoCraft.DINOSAUR_REGISTRY) {
+            if (dinosaur.getEntity() == entity.getClass()) {
+                return dinosaur;
+            }
+        }
+        return null;
     }
 
     public Dinosaur getDinosaurFromID(int id) {
